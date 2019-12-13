@@ -62,6 +62,20 @@ class Customer extends CI_Controller {
             redirect(site_url("Beranda"));
         }
     }
+
+    public function Edit()
+    {
+        //Edit data customer
+        $data = array();
+        $data['nama_customer'] = $this->input->post('name');
+        $data['no_hp'] = $this->input->post('no');
+
+        $cek = $this->Customer_M->Edit($id_customer,$data);
+        if ($cek) $this->session->set_flashdata('info','Data berhasil di update');
+        else $this->session->set_flashdata('info','Data gagal di update');
+        redirect("Beranda");
+
+    }
     
     public function Log_Out()
 	{

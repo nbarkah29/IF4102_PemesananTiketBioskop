@@ -20,6 +20,9 @@ class Film extends CI_Controller {
 		} else {
 			$data['status'] = FALSE;
 		}
+
+		$data["film"] = $this->Film_M->Get_All_Film();
+		
         return $data;
     }
 }
